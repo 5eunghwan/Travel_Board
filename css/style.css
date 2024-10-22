@@ -1,0 +1,555 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    position: fixed;
+    top: 20px; /* 화면 상단에서의 위치 */
+    right: 20px; /* 화면 우측에서의 위치 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.header .login_wrap {
+    display: inline-block;
+}
+
+.login, .signup {
+    background-color: #489CFF; /* White background for buttons */
+    color: #fff; 
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.login:hover, .signup:hover {
+    background-color: #0056b3;
+}
+
+.welcome-message {
+    display: flex; /* Flexbox로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    font-size: 18px; /* 폰트 크기 증가 */
+    margin-right: 20px; /* 오른쪽 여백 추가 */
+}
+
+.welcome-text {
+    margin-right: 15px; /* 로그아웃 링크와의 간격 */
+    color: #000; /* 흰색 텍스트 */
+}
+
+.logout {
+    background-color: #489CFF; /* 빨간색 배경 */
+    color: white; /* 흰색 텍스트 */
+    padding: 10px 15px; /* 패딩 추가 */
+    border-radius: 5px; /* 둥근 모서리 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+
+.board_wrap {
+    width: 100%;
+    max-width: 1200px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 배치 */
+    padding: 20px;
+}
+
+/* 제목과 서브 타이틀 스타일 */
+.board_title {
+    margin-bottom: 120px;
+}
+
+.board_title strong {
+    display: block;
+    font-size: 52px;
+    font-weight: bold;
+    text-align: center; /* 왼쪽 정렬 */
+    color : #489CFF;
+}
+
+.search_wrap {
+    position: fixed;
+    bottom: 20px; /* 화면 하단에서의 위치 */
+    right: 20px; /* 화면 우측에서의 위치 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+.search_container {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#search_option {
+    width: 100px;
+    height: 40px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+#search_input {
+    flex-grow: 1;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#search_btn {   
+    width: 80px;
+    height: 40px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search_btn:hover {
+    background-color: #0056b3;
+}
+
+/* 카테고리 스타일 */
+.category_wrap {
+    text-align: center;
+    margin: 10px 0; /* 위아래 간격을 줄임 */
+}
+
+.category_item {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 2px solid #000000; /* 테두리 색상 */
+    border-radius: 20px; /* 둥근 모서리 */
+    color: #000000;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category_item:hover {
+    background-color: #489CFF;
+    color: white;
+}
+
+
+.bt_wrap {
+    position: fixed;
+    bottom: 100px; /* 검색창 위에 배치하기 위해 하단에서 약간 위로 설정 */
+    right: 40px;
+    z-index: 1000;
+    
+    
+}
+
+.bt_wrap a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.bt_wrap a:first-child {
+    margin-left: 0;
+}
+
+.bt_wrap a.on {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.board_list {
+    width: 100%;
+    border-top: 2px solid #000;
+}
+
+.board_list > div {
+    border-bottom: 1px solid #ddd;
+    font-size: 0;
+}
+
+.board_list > div.top {
+    border-bottom: 1px solid #999;
+}
+
+.board_list > div:last-child {
+    border-bottom: 1px solid #000;
+}
+
+.board_list > div > div {
+    display: inline-block;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.4rem;
+
+}
+
+.board_list > div.top > div {
+    font-weight: 600;
+    border-bottom: 1px solid #999;
+}
+
+.board_list .num {
+    width: 10%;
+}
+
+.board_list .title {
+    width: 40%;
+    text-align: left;
+}
+
+.board_list .top .title {
+    text-align: center;
+}
+
+.board_list .writer {
+    width: 15%;
+}
+
+.board_list .date {
+    width: 15%;
+}
+
+.board_list .hits {
+    width: 10%;
+
+}
+.board_list .likes {
+    width: 10%;
+    
+}
+
+.board_page {
+    margin: 0 auto; /* 좌우 여백을 자동으로 설정하여 중앙 정렬 */
+    text-align: center; /* 중앙 정렬 */
+    font-size: 0; /* 글자 크기 초기화 */
+    width: 100%; /* 너비를 100%로 설정 */
+    position: absolute; /* 절대 위치 설정 */
+    left: 50%; /* 왼쪽 중앙에 배치 */
+    transform: translateX(-50%); /* 중앙 정렬을 위해 수평으로 이동 */
+    bottom: 100px; /* 하단에서의 위치 */
+}
+
+
+.board_page a {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    border-left: 0;
+    line-height: 100%;
+}
+
+.board_page a.bt {
+    padding-top: 10px;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+}
+
+.board_page a.num {
+    padding-top: 9px;
+    font-size: 1.4rem;
+}
+
+.board_page a.num.on {
+    border-color: #000;
+    background: #000;
+    color: #fff;
+}
+
+.board_page a:first-child {
+    border-left: 1px solid #ddd;
+}
+
+.board_view {
+    width: 100%;
+    border-top: 2px solid #000;
+}
+
+.board_view .title {
+    padding: 20px 15px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 2rem;
+}
+
+.board_view .info {
+    padding: 15px;
+    border-bottom: 1px solid #999;
+    font-size: 0;
+}
+
+.board_view .info dl {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.board_view .info dl:first-child {
+    padding-left: 0;
+}
+
+.board_view .info dl::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 0;
+    display: block;
+    width: 1px;
+    height: 13px;
+    background: #ddd;
+}
+
+.board_view .info dl:first-child::before {
+    display: none;
+}
+
+.board_view .info dl dt,
+.board_view .info dl dd {
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+
+.board_view .info dl dd {
+    margin-left: 10px;
+    color: #777;
+}
+
+.board_view .cont {
+    padding: 15px;
+    line-height: 160%;
+    font-size: 1.4rem;
+}
+
+.comment_wrap {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.comment_wrap h3 {
+    font-size: 20px; /* 글자 크기 */
+    font-weight: bold; /* 굵게 */
+    margin-bottom: 20px; /* 아래쪽 여백 */
+    color: #333; /* 글자 색상 */
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+
+.comment {
+    margin-bottom: 15px ;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.comment_info {
+    font-size: 14px;
+    color: #666;
+}
+
+.comment_info strong {
+    color: #333;
+}
+
+.comment_content {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.comment_form {
+    background-color: #f9f9f9; /* 배경색 */
+    border: 1px solid #ddd; /* 테두리 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    padding: 20px; /* 내부 여백 */
+    margin-top: 20px; /* 상단 여백 */
+    font-size: 16px; /* 글자 크기 */
+    line-height: 1.5; /* 줄 간격 */
+    /* 아래 옵션을 추가하여 높이를 늘릴 수 있습니다 */
+    min-height: 150px; /* 최소 높이 */
+}
+
+
+.comment_form h4 {
+    margin-bottom: 10px;
+}
+
+.comment_form textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; /* 크기 조절 비활성화 */
+}
+
+.comment_form button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+
+.comment_form button:hover {
+    background-color: #0056b3; /* 호버 효과 */
+}
+
+.board_write {
+    border-top: 2px solid #000;
+}
+
+.board_write .title,
+.board_write .info {
+    padding: 15px;
+}
+
+.board_write .info {
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px solid #000;
+    font-size: 0;
+}
+
+.board_write .title dl {
+    font-size: 0;
+}
+
+.board_write .info dl {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+
+.board_write .title dt,
+.board_write .title dd,
+.board_write .info dt,
+.board_write .info dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.4rem;
+}
+
+.board_write .title dt,
+.board_write .info dt {
+    width: 100px;
+}
+
+.board_write .title dd {
+    width: calc(100% - 100px);
+}
+
+.board_write .title input[type="text"],
+.board_write .info input[type="text"],
+.board_write .info input[type="password"] {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.board_write .title input[type="text"] {
+    width: 40%;
+}
+
+.board_write .cont {
+    border-bottom: 1px solid #000;
+}
+
+.board_write .cont textarea {
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
+
+.write_btn {
+    background-color: #007BFF; /* 파란색 배경 */
+    color: white; /* 글자 색상 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 패딩 */
+    font-size: 16px; /* 폰트 크기 */
+    cursor: pointer; /* 커서 모양 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    transition: background-color 0.3s; /* 배경색 변화에 애니메이션 */
+    border: 2px solid #000000;
+}
+
+.write_btn:hover {
+    background-color: #0056b3; /* 호버 시 배경색 변화 */
+}
+
+.cancel_btn {
+    background-color: #dc3545; /* 빨간색 배경 */
+    color: white; /* 글자 색상 */
+    padding: 10px 20px; /* 패딩 */
+    font-size: 16px; /* 폰트 크기 */
+    text-decoration: none; /* 텍스트 장식 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    margin-left: 10px; /* 버튼 간의 간격 */
+    transition: background-color 0.3s; /* 배경색 변화에 애니메이션 */
+    border: 2px solid #000000;
+}
+
+.delete_btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #d9534f; /* 삭제 버튼의 배경색 */
+    color: white; /* 글자색 */
+    text-decoration: none; /* 밑줄 제거 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    transition: background-color 0.3s; /* 배경색 변화 효과 */
+}
+
+.delete_btn:hover {
+    background-color: #c9302c; /* 호버 시 색상 변화 */
+}
+
+.pagination {
+    text-align: center; /* 중앙 정렬 */
+    margin-top: 100px; /* 위쪽 여백 */
+}
+.pagination a {
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+.pagination a.active {
+    font-weight: bold; /* 현재 페이지 강조 */
+    color: #007bff; /* 강조 색상 */
+}
